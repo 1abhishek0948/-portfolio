@@ -1,0 +1,385 @@
+/* --- Root Variables for Colors and Fonts --- */
+:root {
+    --bg-color: #0A0A1F;
+    --primary-accent: #00F5FF;
+    --secondary-accent: #F72585;
+    --text-color: #F0F0F8;
+    --subtle-text: #ffffff;
+    --glass-bg: rgba(15, 15, 35, 0.35);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* --- Base & Body Styles --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none; /* Hide the default cursor */
+}
+
+/* --- Custom Cursor --- */
+.cursor-dot, .cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-accent);
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-accent);
+    transition: all 0.08s ease-out;
+}
+
+/* --- Particles.js Background --- */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* --- Glassmorphism Panel --- */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+/* project card image size */
+.project-card img {
+    width:100%;
+    height:100%;     /* adjust as needed */
+    object-fit: cover; /* keeps image clean without distortion */
+    border-radius: 12px;
+}
+
+/* --- Layout & Sections --- */
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    padding-top: 100px;
+}
+
+section {
+    padding: 8rem 0;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-accent);
+    border-radius: 2px;
+}
+
+
+/* --- Navbar --- */
+.navbar {
+    padding: 1rem 0;
+    transition: background-color 0.3s ease;
+}
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.nav-link {
+    color: var(--subtle-text);
+    transition: color 0.3s;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-accent);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    min-height: 100vh;
+}
+.hero-section h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 10vw, 6rem);
+}
+#typed-element {
+    color: var(--primary-accent);
+}
+
+/* --- Buttons --- */
+.btn-cta {
+    background: var(--primary-accent);
+    color: var(--bg-color);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: 2px solid var(--primary-accent);
+    transition: all 0.3s ease;
+}
+.btn-cta:hover {
+    background: transparent;
+    color: var(--primary-accent);
+}
+.btn-outline-cta {
+    color: var(--primary-accent);
+    border-color: var(--primary-accent);
+    border-radius: 50px;
+    padding: 10px 25px;
+}
+.btn-outline-cta:hover {
+    background: var(--primary-accent);
+    color: var(--bg-color);
+}
+/* --- Contact & Footer --- */
+.social-icons a {
+    color: var(--subtle-text);
+    font-size: 1.8rem;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+.social-icons a:hover {
+    color: var(--primary-accent);
+}
+footer {
+    color: var(--subtle-text);
+    font-size: 0.9rem;
+} 
+.gradient-text {
+  /* font-size: 2rem;  */
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    #ff00cc,
+    #3333ff,
+    #00ffff,
+    #33ff33,
+    #ffcc00,
+    #ff00cc
+  );
+  background-size: 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 6s ease-in-out infinite;
+}
+
+/* Smooth Gradient Animation */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*Floating Image Animation*/
+.floating-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  cursor: grab;
+  transition: opacity 0.4s ease, transform 0.2s ease;
+}
+
+.floating-image.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.floating-image img {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.photo {
+box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+ 
+}
+.skill-card-effect {
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px 0 rgba(0, 245, 255, 0.2);
+  transition: all 0.4s ease;
+  padding: 20px;
+ 
+  text-align: center;
+}
+
+.skill-card-effect:hover {
+  transform: scale(1.05);
+  background: transparent;
+  border-color: rgba(0, 245, 255, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 245, 255, 0.4);
+}
+.skill-text-color {
+  color: #565659;
+  
+}
+.skill-text-color:hover {
+  color: #c300ff;
+}
+.image-effect {
+  transition: 0.4s ease-in-out;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+}
+
+.image-effect:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+}
+/* --- Progress Button --- */
+
+.btn-progress {
+    position: relative;
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid var(--primary-accent);
+    color: var(--primary-accent);
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 25px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Background fill */
+.btn-progress::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--primary-accent);
+    z-index: -1;
+    transition: width 0.4s ease-in-out;
+}
+
+/* Text change */
+.btn-progress::after {
+    content: "70% Done";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: black;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.btn-progress:hover::before {
+    width: 70%;
+}
+
+.btn-progress:hover {
+    color: transparent;
+}
+
+.btn-progress:hover::after {
+    opacity: 1;
+}
+.btn-progress,
+.btn.btn-outline-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin-right: 10px;   /* space between them */
+}
+/* --- PPT Modal Styles --- */
+.project-description {
+    position: relative;
+}
+
+#ppt_container {
+    width: 100%;
+    height: 245px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    margin-top: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #888 #222;
+}
+
+/* Scrollbar for Chrome, Edge, Safari */
+.project-description {
+    transition: opacity 0.4s ease;
+}
+
+.ppt-box {
+    width: 100%;
+    height: 250px;
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    margin-top: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+.ppt-box::-webkit-scrollbar {
+    width: 8px;
+}
+.ppt-box::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 10px;
+}
+.ppt-box::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+#ppt_frame {
+    width: 98%;
+    height: 800px; /* big height to enable scrolling */
+    border: none;
+}
