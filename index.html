@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abhishek's portfolio featuring full-stack development, machine learning, and creative web projects.">
     <title>Abhishek | Celestial Portfolio</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,33 +12,33 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400&family=Sansita:wght@400;700&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
-    <div id="particles-js"></div>
+    <div id="particles-js" aria-hidden="true"></div>
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-panel">
         <div class="container">
-            <a class="navbar-brand gradient-text" href="#">Abhishek</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand gradient-text" href="#top">Abhishek</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
+                <div class="navbar-actions mt-3 mt-lg-0 ms-lg-3 d-flex align-items-center gap-2">
+                    <a href="#contact" class="btn btn-cta btn-sm nav-cta">Hire Me</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -47,7 +48,7 @@
         <header class="hero-section text-center d-flex align-items-center justify-content-center">
             <div>
                  <div class="floating-image">
-                <img src="images/Abhishek Photo.png" class="img-fluid rounded-circle photo" alt="Abhishek Photo">
+                <img src="images/Abhishek Photo.png" class="img-fluid rounded-circle photo" alt="Portrait of Abhishek" decoding="async">
             </div>
                 <h1 class="display-1 gradient-text" data-aos="fade-up">Abhishek</h1>
                 <h2 class="h3" data-aos="fade-up" data-aos-delay="200">
@@ -56,7 +57,9 @@
                 <p class="lead col-md-8 mx-auto mt-3" data-aos="fade-up" data-aos-delay="400">
                     I craft elegant digital experiences at the intersection of code and creativity.
                 </p>
-                <a href="#projects" class="btn btn-cta mt-4" data-aos="fade-up" data-aos-delay="600">Explore My Universe</a>
+                <div class="hero-actions d-flex flex-wrap justify-content-center gap-3 mt-4" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#projects" class="btn btn-cta">View My Work</a>
+                </div>
             </div>
         </header>
 
@@ -66,21 +69,108 @@
                     <h2 class="section-title text-center mb-4">My Philosophy</h2>
                     <div class="row align-items-center">
                         <div class="col-lg-4 text-center">
-                        <img src="images/Abhishek Photo.png" class="img-fluid rounded-circle mb-3 mb-lg-0 w-75 image-effect" alt="Abhishek Photo">
+                        <img src="images/Abhishek Photo.png" class="img-fluid rounded-circle mb-3 mb-lg-0 w-75 image-effect" alt="Portrait of Abhishek" loading="lazy" decoding="async">
                         </div>
-                        <div class="col-lg-8">
-                            <p>I believe that the best digital products are born from a deep understanding of human needs and a passion for technological innovation. My approach is to bridge the gap between complex problems and beautiful, intuitive solutions.</p>
-                            <p>Whether I'm architecting a robust backend system or designing a pixel-perfect user interface, my goal is always the same: to create something that is not only functional and efficient but also a joy to use.</p>
-                        </div>
+                        <div class="col-lg-8 card-text my-philosophy" style="font-size: 1.15rem;">
+    
+                        <p>I build software at the intersection of creativity, logic, and purpose. As a full-stack developer, 
+                           I focus on creating scalable, efficient, and intuitive systems — from engaging user interfaces to reliable backend architectures.
+                        </p>
+
+                        <p>I continuously learn and adapt to new technologies, aiming to build intelligent, real-world solutions
+                             that deliver meaningful digital experiences.
+                        </p>
+
+                        <p>I strive to turn complex ideas into simple, impactful solutions that create real value for users and businesses.
+                        </p>
+                        
+
+</div>
                     </div>
                 </div>
             </div>
         </section>
 
+<section id="timeline" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">Career Timeline</h2>
+
+        <div class="timeline">
+            <article class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="glass-panel timeline-card p-3 p-md-4">
+                    <p class="timeline-year">2020 - 2022</p>
+                    <h3 class="h5 mb-2">Foundations in Programming &amp; Web</h3>
+                    <ul class="timeline-points mb-0">
+                        <li><span class="timeline-label">Learned:</span><span class="timeline-value">C, HTML, CSS, JavaScript</span></li>
+                        <li><span class="timeline-label">Built:</span><span class="timeline-value">Basic projects &amp; static websites</span></li>
+                        <li><span class="timeline-label">Focus:</span><span class="timeline-value">Core programming logic + web fundamentals</span></li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="glass-panel timeline-card p-3 p-md-4">
+                    <p class="timeline-year">2023</p>
+                    <h3 class="h5 mb-2">Python &amp; DSA</h3>
+                    <ul class="timeline-points mb-0">
+                        <li><span class="timeline-label">Learned:</span><span class="timeline-value">Python programming</span></li>
+                        <li><span class="timeline-label">Explored:</span><span class="timeline-value">Data Structures &amp; Algorithms (DSA)</span></li>
+                        <li><span class="timeline-label">Focus:</span><span class="timeline-value">Problem-solving + coding efficiency</span></li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="glass-panel timeline-card p-3 p-md-4">
+                    <p class="timeline-year">2024</p>
+                    <h3 class="h5 mb-2">Frontend Internship &amp; Backend Learning</h3>
+                    <ul class="timeline-points mb-0">
+                        <li><span class="timeline-label">Completed:</span><span class="timeline-value">3-Month Frontend Developer Internship</span></li>
+                        <li><span class="timeline-label">Worked with:</span><span class="timeline-value">UI/UX, responsive design, real-world projects</span></li>
+                        <li><span class="timeline-label">Learned:</span><span class="timeline-value">Backend development (Flask, Django)</span></li>
+                        <li><span class="timeline-label">Focus:</span><span class="timeline-value">Transition from frontend to full stack</span></li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="glass-panel timeline-card p-3 p-md-4">
+                    <p class="timeline-year">2025</p>
+                    <h3 class="h5 mb-2">Data Science &amp; Machine Learning Exploration</h3>
+                    <ul class="timeline-points mb-0">
+                        <li><span class="timeline-label">Explored:</span><span class="timeline-value">Data Science concepts</span></li>
+                        <li><span class="timeline-label">Learned:</span><span class="timeline-value">Machine Learning basics &amp; models</span></li>
+                        <li><span class="timeline-label">Worked with:</span><span class="timeline-value">Python libraries (NumPy, Pandas, etc.)</span></li>
+                        <li><span class="timeline-label">Focus:</span><span class="timeline-value">Data-driven development + intelligent systems</span></li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="glass-panel timeline-card p-3 p-md-4">
+                    <p class="timeline-year">2026</p>
+                    <h3 class="h5 mb-2">Full Stack Internship &amp; Continuous Learning</h3>
+                    <ul class="timeline-points mb-0">
+                        <li><span class="timeline-label">Role:</span><span class="timeline-value">Full Stack Developer Intern at <a href="https://unifiedmentor.com/" target="_blank" rel="noopener noreferrer"><strong>Unified Mentor</strong></a></span></li>
+                        <li><span class="timeline-label">Worked on:</span><span class="timeline-value">Full-stack applications, APIs, databases,Docker</span></li>
+                        <li><span class="timeline-label">Built:</span><span class="timeline-value">Multiple real-world projects</span></li>
+                        <li><span class="timeline-label">Focus:</span><span class="timeline-value">End-to-end development + continuous learning</span></li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
  <!-- 🌌 Skill Constellation Section -->
 <section id="skills" class="py-5 text-white ">
   <div class="container text-center">
-    <h2 class="section-title mb-5" data-aos="fade-up">🚀 Skill Constellation</h2>
+    <h2 class="section-title mb-5" data-aos="fade-up">Skill Constellation</h2>
 
     <div class="row g-4 justify-content-center">
 
@@ -89,7 +179,7 @@
         <div class="glass-panel p-4 rounded-4 h-100 skill-card-effect">
           <i class="ph-bold ph-code-simple display-4 mb-3 text-primary"></i>
           <h3 class="h4 mb-3">Core Programming</h3>
-          <p class="skill-text-color">Python, Flask, HTML, CSS, JavaScript, API Integration, Data Handling & Analysis</p>
+          <p class="hover-text-color">C | Python | JavaScript| DSA | Problem Solving | Algorithms | Debugging</p>
         </div>
       </div>
 
@@ -98,7 +188,7 @@
         <div class="glass-panel p-4 rounded-4 h-100 skill-card-effect">
           <i class="ph-bold ph-layout display-4 mb-3" style="color:#a78bfa;"></i>
           <h3 class="h4 mb-3">Web & UI Development</h3>
-          <p class="skill-text-color">Responsive Design, Tailwind CSS, Bootstrap 5, Three.js, GSAP Animations, UI/UX Principles</p>
+          <p class="hover-text-color">HTML | CSS | JavaScript | Three.js | React | Tailwind CSS | Bootstrap 5 | Responsive Design | Three.js | UI/UX</p>
         </div>
       </div>
 
@@ -107,7 +197,7 @@
         <div class="glass-panel p-4 rounded-4 h-100 skill-card-effect">
           <i class="ph-bold ph-brain display-4 mb-3 text-success"></i>
           <h3 class="h4 mb-3">Machine Learning & Engineering</h3>
-          <p class="skill-text-color">ML Fundamentals, Model Training, Compiler Design, Digital Electronics</p>
+          <p class="hover-text-color">Machine Learning | Model Training | Data Handling & Analysis | Digital Electronics</p>
         </div>
       </div>
 
@@ -116,7 +206,7 @@
         <div class="glass-panel p-4 rounded-4 h-100 skill-card-effect">
           <i class="ph-bold ph-stack display-4 mb-3 text-info"></i>
           <h3 class="h4 mb-3">Full-Stack Development</h3>
-          <p class="skill-text-color">Frontend–Backend Integration, SQL, Flask Apps, Production Readiness</p>
+          <p class="hover-text-color">React | Flask | Django | APIs | SQL | PostgreSQL | MongoDB | Auth | CRUD | Integration</p>
         </div>
       </div>
 
@@ -125,7 +215,7 @@
         <div class="glass-panel p-4 rounded-4 h-100 skill-card-effect">
           <i class="ph-bold ph-camera display-4 mb-3" style="color:#f472b6;"></i>
           <h3 class="h4 mb-3">Creative & Media</h3>
-          <p class="skill-text-color">YouTube (Geeks in Lab), Tech Content, Aesthetic Design, Shayari Creation</p>
+          <p class="hover-text-color">YouTube (Geeks in Lab) | Tech Content | Aesthetic Design</p>
         </div>
       </div>
 
@@ -134,7 +224,7 @@
         <div class="glass-panel p-4 rounded-4 h-100 skill-card-effect">
           <i class="ph-bold ph-rocket display-4 mb-3 text-warning"></i>
           <h3 class="h4 mb-3">Vision & Growth</h3>
-          <p class="skill-text-color">Full-Stack Web Developer • Python Developer • Machine Learning Engineer</p>
+          <p class="hover-text-color">Full-Stack Web Developer | Python Developer | Machine Learning Engineer</p>
         </div>
       </div>
 
@@ -147,137 +237,241 @@
         <h2 class="section-title text-center mb-5" data-aos="fade-up">Featured Works</h2>
 
         <div class="row g-4">
-
             <!-- Project 1 -->
-            <div class="col-lg-6" data-aos="zoom-in-up">
-                <div class="glass-panel project-card">
-                    <img src="images/blind-assist.png" class="card-img-top" alt="Blind Assistance System">
+            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="260">
+                <article class="glass-panel project-card" data-project-slider>
+                    <img src="images/lafzverse.png" class="card-img-top" alt="Lafzverse preview" loading="lazy" decoding="async">
                     <div class="card-body p-4">
-                        <h5 class="card-title">Blind Assistance System</h5>
-                        <p class="card-text">
-                            <b>Title:</b> Blind Assistance System: Real-Time Object Detection with Distance and Voice Alerts<br>
-                            <b>Slogan:</b> Empowering blind individuals through technology.<br><br>
-                            <b>Description:</b> A group project using computer vision and sensors to detect obstacles,
-                            estimate distance, and alert the user with real-time voice feedback.
-                        </p>
-                        <a href="https://github.com/1abhishek0948/BLIND-ASSISTANCE-SYSTEM" target="_blank" class="btn btn-outline-cta">Code</a>
+                        <h5 class="card-title">Lafzverse (2026) </h5>
+                        <div class="project-slider" aria-live="polite">
+                            <div class="project-slider-track">
+                                <section class="project-slide">
+                                    <h6>Project Overview</h6>
+                                    <p><b>Title:</b> Lafzverse — Poetry that Breaths</p>
+                                    <p><b>Slogan:</b> Express. Feel. Connect.</p>
+                                    <p><b>Description:</b> A social poetry space where users Read & share shayari by mood, discover trending emotions.</p>
+                                    <div class="project-slide-actions">
+                                        <a href="https://lafzverse-web.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-cta">Visit</a>
+                                    </div>
+                                </section>
+                                <section class="project-slide">
+                                    <h6>Technologies &amp; Tools</h6>
+                                    <ul class="project-tech-list">
+                                        <li>Python (Backend Logic)</li>
+                                        <li>Django (Web Framework)</li>
+                                        <li>PostgreSQL (Database Management)</li>
+                                        <li>HTML5, CSS3, JavaScript (Frontend)</li>
+                                        <li>Tailwind CSS (UI Styling)</li>
+                                        <li>REST API Architecture</li>
+                                        <!-- <li>Google Gemini API (AI Shayari Generation)</li> -->
+                                        <li>JWT / Session Authentication</li>
+                                        <li>Cloud Deployment (Render)</li>
+                                        <li>Git & GitHub (Version Control)</li>
+                                        <li>Responsive UI/UX Design</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="project-slider-dots" aria-label="Slide indicators"></div>
                     </div>
-                </div>
+                </article>
             </div>
+
 
             <!-- Project 2 -->
-            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="200">
-                <div class="glass-panel project-card">
-                    <img src="images/umd_hero.png" class="card-img-top" alt="Universal Media Downloader">
+            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="180">
+                <article class="glass-panel project-card" data-project-slider>
+                    <img src="images/lahan.png" class="card-img-top" alt="LAHAN Hub project preview" loading="lazy" decoding="async">
                     <div class="card-body p-4">
-                        <h5 class="card-title">Universal Media Downloader</h5>
-                        <p class="card-text">
-                            <b>Title:</b> Universal Media Downloader — Fast, Flexible & High-Quality Content Extraction<br>
-                            <b>Slogan:</b> Download Anything, Anytime — From Any Platform.<br><br>
-                            <b>Description:</b> A lightweight tool built with Python, Flask, and yt-dlp that allows users
-                            to download media from multiple platforms with format selection and quality options.
-                        </p>
-                        <a href="https://universal-media-downloader-bice.vercel.app/" target="_blank" class="btn btn-outline-cta">Visit</a>
-                        <a href="https://github.com/1abhishek0948/Universal-Media-downloader" target="_blank" class="btn btn-outline-cta">Code</a>
-
+                        <h5 class="card-title">LAHAN Hub (2025)</h5>
+                        <div class="project-slider" aria-live="polite">
+                            <div class="project-slider-track">
+                                <section class="project-slide">
+                                    <h6>Project Overview</h6>
+                                    <p><b>Title:</b> LAHAN Hub — All-in-One Community, Service &amp; Event Platform</p>
+                                    <p><b>Slogan:</b> Your city, your voice, connected in one click.</p>
+                                    <p><b>Description:</b> A community-first web platform with events, local announcements, service workflows, and city-level engagement features.</p>
+                                    <div class="project-slide-actions">
+                                        <a href="https://1abhishek0948.github.io/Lahan/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-cta">Visit</a>
+                                    </div>
+                                </section>
+                                <section class="project-slide">
+                                    <h6>Technologies &amp; Tools</h6>
+                                        <ul class="project-tech-list">
+                                            <li>Python & Django (Backend Framework)</li>
+                                            <li>PostgreSQL (Relational Database)</li>
+                                            <li>Django ORM (Database Abstraction)</li>
+                                            <li>Django REST Framework (API Development)</li>
+                                            <li>Bootstrap (Responsive UI)</li>
+                                            <li>Django Authentication System (User & Role Management)</li>
+                                            <li>Admin Dashboard (Django Admin Panel)</li>
+                                            <li>Cloud Deployment (Render)</li>
+                                            <li>Git & GitHub (Version Control)</li>
+                                        </ul>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="project-slider-dots" aria-label="Slide indicators"></div>
                     </div>
-                </div>
+                </article>
             </div>
+ 
 
             <!-- Project 3 -->
-            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="200">
-                <div class="glass-panel project-card">
-                    <img src="images/lahan.png" class="card-img-top" alt="LAHAN Hub Project">
+            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="220">
+                <article class="glass-panel project-card" data-project-slider>
+                    <img src="images/small-project.png" class="card-img-top" alt="Small projects preview" loading="lazy" decoding="async">
                     <div class="card-body p-4">
-                        <h5 class="card-title">LAHAN Hub</h5>
-                        <p class="card-text">
-                            <b>Title:</b> LAHAN Hub — All-in-One Community, Service & Event Platform<br>
-                            <b>Slogan:</b> Your City, Your Voice — Connected in One Click.<br>
-                            <b>Description:</b> A next-gen web platform with event management, community posts,
-                            dashboards, and admin controls.<br>
-                            Additional features:<br>
-                            • Online Shop for Local Sellers<br>
-                            • Complaint System to Contact Politicians & Authorities<br>
-                            • Real-Time Announcements & Updates <br>
-                            • Chat System for Community Interaction
-                        </p>
-                        <a href="https://1abhishek0948.github.io/Lahan/" target="_blank" class="btn btn-outline-cta">Visit</a>
+                        <h5 class="card-title">Small Projects (2023)</h5>
+                        <div class="project-slider" aria-live="polite">
+                            <div class="project-slider-track">
+                                <section class="project-slide">
+                                    <h6>Project Overview</h6>
+                                    <p><b>Title:</b> Small Projects — Collection of Mini Web Apps &amp; Tools</p>
+                                    <p><b>Slogan:</b> Explore, experiment, and learn by building.</p>
+                                    <p><b>Description:</b> A set of focused mini-products including chatbot tools, ML classifiers, utility apps, and high-speed sharing workflows.</p>
+                                    <div class="project-slide-actions">
+                                        <a href="https://github.com/1abhishek0948" target="_blank" rel="noopener noreferrer" class="btn btn-outline-cta">Code</a>
+                                    </div>
+                                </section>
+                                <section class="project-slide">
+                                    <h6>Technologies &amp; Tools</h6>
+                                    <ul class="project-tech-list">
+                                        <li>Python and Flask</li>
+                                        <li>Machine learning basics</li>
+                                        <li>REST API integrations</li>
+                                        <li>Frontend JavaScript utilities</li>
+                                        <li>Data preprocessing pipelines</li>
+                                        <li>Rapid prototyping workflow</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="project-slider-dots" aria-label="Slide indicators"></div>
                     </div>
-                </div>
+                </article>
             </div>
 
             <!-- Project 4 -->
-            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="200">
-                <div class="glass-panel project-card">
-                    <img src="images/small-project.png" class="card-img-top" alt="Small Projects">
+            <div class="col-lg-6" data-aos="zoom-in-up">
+                <article class="glass-panel project-card" data-project-slider>
+                    <img src="images/blind-assist.png" class="card-img-top" alt="Blind Assistance System preview" loading="lazy" decoding="async">
                     <div class="card-body p-4">
-                        <h5 class="card-title">Small Projects</h5>
-                        <p class="card-text">
-                            <b>Title:</b> Small Projects — Collection of Mini Web Apps & Tools<br>
-                            <b>Slogan:</b> Explore. Experiment. Enjoy.<br><br>
-                            <b>Description:</b> A set of small but impactful projects including:<br>
-                            • Python YouTube Chatbot<br>
-                            • Weather Forecast App<br>
-                            • Spam Message Classifier (ML)<br>
-                            • AI-Based Comment Cleaner <br>
-                            • Real-Time High-Speed File Sharing WebApp
-                        </p>
-                        <a href="https://github.com/1abhishek0948" target="_blank" class="btn btn-outline-cta">Code</a>
+                        <h5 class="card-title">Blind Assistance System (2024)</h5>
+                        <div class="project-slider" aria-live="polite">
+                            <div class="project-slider-track">
+                                <section class="project-slide">
+                                    <h6>Project Overview</h6>
+                                    <p><b>Title:</b> Blind Assistance System: Real-Time Object Detection with Distance and Voice Alerts</p>
+                                    <p><b>Slogan:</b> Empowering blind individuals through technology.</p>
+                                    <p><b>Description:</b> A practical assistive system that detects nearby obstacles, estimates distance, and gives instant voice feedback for safer movement.</p>
+                                    <div class="project-slide-actions">
+                                        <a href="https://github.com/1abhishek0948/BLIND-ASSISTANCE-SYSTEM" target="_blank" rel="noopener noreferrer" class="btn btn-outline-cta">Code</a>
+                                    </div>
+                                </section>
+                                <section class="project-slide">
+                                    <h6>Technologies &amp; Tools</h6>
+                                    <ul class="project-tech-list">
+                                        <li>Python</li>
+                                        <li>OpenCV</li>
+                                        <li>MobileNetV2:Object detection model</li>
+                                        <li>Text-to-speech engine</li>
+                                        <li>Ultrasonic sensing</li>
+                                        <li>Embedded hardware integration</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="project-slider-dots" aria-label="Slide indicators"></div>
                     </div>
-                    
-                </div>
+                </article>
             </div>
 
             <!-- Project 5 -->
-            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="200">
-                <div class="glass-panel project-card">
-                    <img src="images/under-const.png" class="card-img-top" alt="ShareShyari Hub">
+
+           <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="120">
+                <article class="glass-panel project-card" data-project-slider>
+                    <img src="images/umd_hero.png" class="card-img-top" alt="Universal Media Downloader preview" loading="lazy" decoding="async">
                     <div class="card-body p-4">
-                        <h5 class="card-title">ShareShyari Hub (Under Development)</h5><br>
-                        <p class="card-text">
-                            <b>Title:</b> ShareShyari Hub — Mood-Based Shayari & Emotions Sharing Platform<br>
-                            <b>Slogan:</b> Express. Feel. Connect.<br><br>
-                            <b>Description:</b> A platform where users share shayari, explore moods, and discover
-                            trending emotions with AI-powered suggestions and beautiful shayari cards.<br>
-                            <b>Additional Features:</b><br>
-                            • AI-Generated Shayari <br>
-                            • Mood & Emotion Categories<br>
-                        </p>
-                        <a href="https://github.com/1abhishek0948/poetry-share" target="_blank" class="btn-progress ">View Work</a><a href="#" class="btn btn-outline-cta">Collebrate</a>
-                        
+                        <h5 class="card-title">Universal Media Downloader (2024)</h5>
+                        <div class="project-slider" aria-live="polite">
+                            <div class="project-slider-track">
+                                <section class="project-slide">
+                                    <h6>Project Overview</h6>
+                                    <p><b>Title:</b> Universal Media Downloader — Fast, Flexible &amp; High-Quality Content Extraction</p>
+                                    <p><b>Slogan:</b> Download anything, anytime, from any supported platform.</p>
+                                    <p><b>Description:</b> A lightweight web app that lets users fetch media with format and quality controls while keeping the interface simple and reliable.</p>
+                                    <div class="project-slide-actions">
+                                        <a href="https://universal-media-downloader-bice.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-cta">Visit</a>
+                                        <a href="https://github.com/1abhishek0948/Universal-Media-downloader" target="_blank" rel="noopener noreferrer" class="btn btn-outline-cta">Code</a>
+                                    </div>
+                                </section>
+                                <section class="project-slide">
+                                    <h6>Technologies &amp; Tools</h6>
+                                    <ul class="project-tech-list">
+                                        <li>Python</li>
+                                        <li>Flask</li>
+                                        <li>yt-dlp</li>
+                                        <li>FFmpeg</li>
+                                        <li>HTML, CSS, JavaScript</li>
+                                        <li>Cloud deployment workflow</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="project-slider-dots" aria-label="Slide indicators"></div>
                     </div>
-                </div>
-
+                </article>
             </div>
-                <!-- Project 6 -->
-    <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="200">
-        <div class="glass-panel project-card">
-            <img src="images/digital-me.png" class="card-img-top" alt="Dream Project">
-            <div class="card-body p-4">
-                <h5 class="card-title">Dream Project</h5>
-                <!-- Project Description -->
-                <p id="project_text" class="project-description">
-                    <b>Title:</b> Digital Me — Human Digital Twin (Dream Project)<br>
-                    <b>Slogan:</b> Your Intelligence, Evolved. Forever.<br>
-                    <b>Description:</b> A futuristic AI system that replicates your knowledge, behavior, communication style, and decisions—creating an adaptive digital twin that learns, assists, and preserves your intelligence beyond your lifetime.<br>
-                    <b>Future Scope:</b><br>
-                    • Voice Cloning<br>
-                    • Emotional Modeling<br>
-                    • Autonomous Agent System<br>
-                    • Long-Term Memory Engine<br>
-                </p>
 
-                <!-- PPT Box (Hidden Initially) -->
-                <div id="ppt_container" class="ppt-box" style="display: none;">
-                    <iframe id="ppt_frame"></iframe>
-                </div>
+             <!-- Project 6 -->
+            <div class="col-lg-6" data-aos="zoom-in-up" data-aos-delay="300">
+                <article class="glass-panel project-card dream-project-card" data-project-slider>
+                    <img src="images/digital-neuro.png" class="card-img-top" alt="Dream Project preview" loading="lazy" decoding="async">
+                    <div class="card-body p-4">
+                        <h5 class="card-title">Digital Neuro (Dream Project)</h5>
+                        <div class="project-slider" aria-live="polite">
+                            <div class="project-slider-track">
+                                <section class="project-slide">
+                                    <h6>Project Overview</h6>
+                                    <div id="project_text" class="project-description hover-text-color">
+                                        <p><b>Title:</b> Digital Neuro — Human Digital Twin</p>
+                                        <p><b>Slogan:</b> Your Intelligence, Evolved. Forever.</p>
+                                        <p><b>Description:</b> A futuristic AI system that replicates knowledge, behavior, communication style, and decisions to build an adaptive digital twin that learns and assists over time.</p>
+                                    </div>
 
-                <!-- Button -->
-                <a href="#" id="ppt_button" class="btn btn-outline-cta">View PPT</a>
+                                    <div id="ppt_container" class="ppt-box" style="display: none;">
+                                        <iframe id="ppt_frame" title="Digital Neuro project presentation"></iframe>
+                                    </div>
+
+                                    <div class="project-slide-actions">
+                                        <a href="https://github.com/1abhishek0948/poetry-share" target="_blank" rel="noopener noreferrer" class="btn-progress">View Work</a>
+                                        <button type="button" id="ppt_button" class="btn btn-outline-cta" aria-controls="ppt_container" aria-expanded="false">View PPT</button>
+                                    </div>
+                                </section>
+
+                                <section class="project-slide">
+                                    <h6> Scope &amp; Technology Path</h6>
+                                    <ul class="project-tech-list">
+                                        <li>Voice cloning and conversational identity layer</li>
+                                        <li>Long-term memory architecture and recall engine</li>
+                                        <li>Behavioral and emotional modeling system</li>
+                                        <li>Autonomous personal agent workflows</li>
+                                        <li>Knowledge graph and context adaptation</li>
+                                        <li>Privacy-first user data controls</li>
+                                    </ul>
+                                    <div class="project-slide-actions">
+                                        <a href="mailto:111abhi.04367@gmail.com?subject=Digital%20Neuro%20Project%20Discussion" class="btn btn-outline-cta">Discuss Idea</a>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="project-slider-dots" aria-label="Slide indicators"></div>
+                    </div>
+                </article>
             </div>
         </div>
     </div>
-
 </section>
 
 
@@ -291,13 +485,17 @@
             </p>
             <div class="row">
                 <div class="col-md-8 mx-auto text-center">
-                    <a href="mailto:111abhi.04367@gmail.com" class="btn btn-cta btn-lg">Say Hello</a>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="mailto:111abhi.04367@gmail.com" class="btn btn-cta btn-lg">Say Hello</a>
+                        <a href="mailto:111abhi.04367@gmail.com?subject=Resume%20Request%20-%20Portfolio" class="btn btn-outline-cta btn-lg">Request Resume</a>
+                        <a href="mailto:111abhi.04367@gmail.com" class="btn btn-cta btn-lg">Hire Me</a>
+                    </div>
 
                     <div class="social-icons mt-4">
-                        <a href="https://github.com/1abhishek0948" target="_blank" class="social-icon"><i class="ph ph-github-logo"></i></a>
-                        <a href="https://www.linkedin.com/in/abhishek0948/" target="_blank" class="social-icon"><i class="ph ph-linkedin-logo"></i></a>
+                        <a href="https://github.com/1abhishek0948" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit Abhishek's GitHub profile"><i class="ph ph-github-logo"></i></a>
+                        <a href="https://www.linkedin.com/in/abhishek0948/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit Abhishek's LinkedIn profile"><i class="ph ph-linkedin-logo"></i></a>
                         <!-- <a href="#" target="_blank" class="social-icon"><i  class="ph ph-x-logo"></i></a> -->
-                        <a href="https://www.instagram.com/1abhishek0948/" target="_blank" class="social-icon"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="https://www.instagram.com/1abhishek0948/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit Abhishek's Instagram profile"><i class="ph ph-instagram-logo"></i></a>
                     </div>
 
                 </div>
@@ -307,7 +505,7 @@
 </section>
     
     <footer class="text-center py-4">
-        <p class="mb-0">&copy; 2025 Abhishek. Crafted with ❤️ in the cosmos.</p>
+        <p class="mb-0">&copy; <span id="current-year">2026</span> Abhishek. Crafted with ❤️ in the cosmos.</p>
     </footer>
 
 

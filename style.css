@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "Sansita";
+    src: local("Sansita"), local("Sansita Regular"), local("Sansita-Bold");
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+}
+
 /* --- Root Variables for Colors and Fonts --- */
 :root {
     --bg-color: #0A0A1F;
@@ -7,43 +15,25 @@
     --subtle-text: #ffffff;
     --glass-bg: rgba(15, 15, 35, 0.35);
     --glass-border: rgba(255, 255, 255, 0.1);
-    --font-heading: 'Poppins', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: "Poppins", sans-serif;
+    --font-body: "Inter", sans-serif;
 }
 
 /* --- Base & Body Styles --- */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none; /* Hide the default cursor */
-}
-
-/* --- Custom Cursor --- */
-.cursor-dot, .cursor-outline {
-    pointer-events: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    z-index: 9999;
-}
-
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--primary-accent);
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--primary-accent);
-    transition: all 0.08s ease-out;
+    line-height: 1.65;
 }
 
 /* --- Particles.js Background --- */
@@ -65,12 +55,214 @@ body {
     border-radius: 1rem;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
-/* project card image size */
+/* --- Project Card & Slider --- */
+.project-card {
+    --project-accent: #22ff00;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: "Sansita", sans-serif;
+}
+
+.project-card .card-body i[class^="ph"],
+.project-card .card-body i[class*=" ph"] {
+    font-family: "Phosphor" !important;
+    font-style: normal;
+}
+
 .project-card img {
-    width:100%;
-    height:100%;     /* adjust as needed */
-    object-fit: cover; /* keeps image clean without distortion */
+    width: 100%;
+    height: 380px;
+    object-fit: contain;
+    object-position: center;
+    background: rgba(7, 14, 28, 0.62);
     border-radius: 12px;
+    padding: 8px;
+}
+
+.project-slider {
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(34, 255, 0, 0.26);
+    background: rgba(255, 255, 255, 0.03);
+    touch-action: pan-y;
+    position: relative;
+}
+
+.project-slider-track {
+    display: flex;
+    transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.project-slide {
+    min-width: 100%;
+    padding: 14px 76px 14px 14px;
+    color: #eef7ec;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+}
+
+.project-slide h6 {
+    margin: 0 0 10px;
+    color: var(--project-accent);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.project-slide p {
+    margin: 0 0 8px;
+    color: #d6e4d1;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.project-slide p b,
+.dream-project-card .project-description b {
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #f4fff2;
+}
+
+.project-slide p:last-child {
+    margin-bottom: 0;
+}
+
+.project-tech-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #d6e4d1;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.project-tech-list li {
+    transition: color 0.2s ease;
+}
+
+.project-slide p:hover,
+.project-tech-list li:hover,
+.my-philosophy p:hover {
+    color: var(--project-accent) !important;
+}
+
+.my-philosophy p:hover {
+    color: rgb(13, 255, 0) !important;
+    
+}
+.project-slider-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(34, 255, 0, 0.5);
+    background: transparent;
+    opacity: 0.7;
+    cursor: pointer;
+    padding: 0;
+    transition: width 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.project-slider-dot.is-active {
+    width: 26px;
+    background: var(--project-accent);
+    border-color: var(--project-accent);
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(34, 255, 0, 0.55);
+}
+
+.project-slider-dot:focus-visible {
+    outline: 2px solid var(--project-accent);
+    outline-offset: 2px;
+}
+
+.project-slide-actions {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end;
+    padding-top: 14px;
+}
+
+.project-slide-actions .btn,
+.project-slide-actions .btn-progress {
+    min-width: 118px;
+}
+
+.project-next-btn {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(34, 255, 0, 0.5);
+    border-radius: 999px;
+    background: rgba(11, 19, 43, 0.88);
+    color: #eaffdf;
+    font-size: 1.55rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px rgba(34, 255, 0, 0.15) inset;
+    transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-next-btn:hover {
+    color: var(--project-accent);
+    border-color: var(--project-accent);
+    background: rgba(7, 14, 28, 0.95);
+    box-shadow: 0 0 12px rgba(34, 255, 0, 0.35);
+    transform: translateY(-50%) scale(1.02);
+}
+
+.project-next-btn:focus-visible {
+    outline: 2px solid var(--project-accent);
+    outline-offset: 2px;
+}
+
+.project-next-btn i {
+    font-size: 1.32rem;
+    line-height: 1;
+}
+
+.dream-project-card .project-description {
+    margin: 0;
+}
+
+.dream-project-card .ppt-box {
+    width: 100%;
+    height: 260px;
+    border: 1px solid rgba(34, 255, 0, 0.26);
+    border-radius: 12px;
+    margin-top: 4px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.dream-project-card #ppt_frame {
+    width: 100%;
+    height: 820px;
+    border: none;
 }
 
 /* --- Layout & Sections --- */
@@ -78,6 +270,7 @@ body {
     position: relative;
     z-index: 1;
     padding-top: 100px;
+    overflow-x: clip;
 }
 
 section {
@@ -105,16 +298,200 @@ section {
     border-radius: 2px;
 }
 
+/* --- Career Timeline --- */
+.timeline {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 8px 0;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+        180deg,
+        rgba(34, 255, 0, 0.14) 0%,
+        rgba(34, 255, 0, 0.9) 50%,
+        rgba(34, 255, 0, 0.14) 100%
+    );
+    box-shadow: 0 0 14px rgba(34, 255, 0, 0.35);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 0 42px;
+    margin-bottom: 26px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #22ff00;
+    border: 2px solid rgba(10, 10, 31, 0.95);
+    box-shadow: 0 0 0 4px rgba(34, 255, 0, 0.16), 0 0 15px rgba(34, 255, 0, 0.65);
+    z-index: 2;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -8px;
+}
+
+.timeline-card {
+    border-color: rgba(34, 255, 0, 0.24);
+    background: rgba(11, 18, 43, 0.56);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    text-align: left;
+}
+
+.timeline-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(34, 255, 0, 0.55);
+    box-shadow: 0 20px 60px rgba(0, 245, 255, 0.4);
+}
+
+.timeline-label,
+.timeline-value {
+    transition: color 0.25s ease;
+}
+
+.timeline-card:hover .timeline-label,
+.timeline-card:hover .timeline-value {
+    color: #22ff00;
+}
+
+.timeline-year {
+    margin: 0 0 8px;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #22ff00;
+}
+
+.timeline-card h3 {
+    margin: 0 0 8px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: #f5fff4;
+}
+
+.timeline-points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.timeline-points li {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 8px;
+    align-items: baseline;
+}
+
+.timeline-label {
+    font-weight: 700;
+    color: #eef7ec;
+    white-space: nowrap;
+}
+
+.timeline-value {
+    color: #d6e4d1;
+    line-height: 1.55;
+}
+
+.timeline-value a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 
 /* --- Navbar --- */
 .navbar {
+    left: 0;
+    right: 0;
+    width: 100%;
     padding: 1rem 0;
+    overflow-x: clip;
     transition: background-color 0.3s ease;
 }
+
+.navbar .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    row-gap: 0.65rem;
+}
+
 .navbar-brand {
     font-family: var(--font-heading);
     font-weight: 600;
     letter-spacing: 1px;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-right: 0;
+    white-space: nowrap;
+    max-width: calc(100% - 76px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-brand.gradient-text {
+    text-align: left;
+    text-transform: none;
+    line-height: 1.2;
+}
+
+.navbar-toggler {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.navbar-collapse,
+.navbar-collapse.show,
+.navbar-collapse.collapsing {
+    overflow-x: hidden;
+}
+
+.navbar-actions .nav-cta {
+    white-space: nowrap;
+}
+
+.navbar-actions .btn-sm {
+    padding: 8px 18px;
 }
 .nav-link {
     color: var(--subtle-text);
@@ -132,10 +509,21 @@ section {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 10vw, 6rem);
 }
-#typed-element {
-    color: var(--primary-accent);
+
+.hero-section .lead {
+    font-family: "Sansita", sans-serif;
 }
 
+.hero-actions .btn {
+    min-width: 170px;
+}
+#typed-element {
+    color: rgb(0, 255, 0);
+    text-shadow: 
+        0 0 2px #22ff00,
+        0 0 6px #22ff00,
+        0 0 12px rgba(34, 255, 0, 0.6);
+}
 /* --- Buttons --- */
 .btn-cta {
     background: var(--primary-accent);
@@ -152,6 +540,7 @@ section {
 }
 .btn-outline-cta {
     color: var(--primary-accent);
+    border: 2px solid var(--primary-accent);
     border-color: var(--primary-accent);
     border-radius: 50px;
     padding: 10px 25px;
@@ -160,6 +549,16 @@ section {
     background: var(--primary-accent);
     color: var(--bg-color);
 }
+
+.nav-link:focus-visible,
+.btn:focus-visible,
+.btn-progress:focus-visible,
+.social-icon:focus-visible,
+.navbar-toggler:focus-visible {
+    outline: 2px solid var(--primary-accent);
+    outline-offset: 4px;
+}
+
 /* --- Contact & Footer --- */
 .social-icons a {
     color: var(--subtle-text);
@@ -216,7 +615,7 @@ footer {
   transform: translate(-50%, -50%);
   z-index: 1000;
   cursor: grab;
-  transition: opacity 0.4s ease, transform 0.2s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .floating-image.hidden {
@@ -229,8 +628,8 @@ footer {
   height: 190px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 100px rgba(0, 255, 255, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.6);
   backdrop-filter: blur(10px);
 }
 
@@ -258,21 +657,25 @@ box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
   border-color: rgba(0, 245, 255, 0.4);
   box-shadow: 0 20px 60px rgba(0, 245, 255, 0.4);
 }
-.skill-text-color {
-  color: #565659;
+.hover-text-color {
+  color: #ffffff;
   
 }
-.skill-text-color:hover {
-  color: #c300ff;
+.hover-text-color:hover {
+  color: #22ff00;
 }
 .image-effect {
   transition: 0.4s ease-in-out;
-  box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 245, 255, 0.4);
 }
 
 .image-effect:hover {
   transform: scale(1.08);
   box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+}
+
+#about .card-text {
+  font-family: "Sansita", sans-serif;
 }
 /* --- Progress Button --- */
 
@@ -303,7 +706,7 @@ box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
 
 /* Text change */
 .btn-progress::after {
-    content: "70% Done";
+    content: "40% Done";
     position: absolute;
     left: 50%;
     top: 50%;
@@ -315,7 +718,7 @@ box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
 
 /* Hover effects */
 .btn-progress:hover::before {
-    width: 70%;
+    width: 60%;
 }
 
 .btn-progress:hover {
@@ -331,55 +734,175 @@ box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
     align-items: center;
     justify-content: center;
     vertical-align: middle;
-    margin-right: 10px;   /* space between them */
-}
-/* --- PPT Modal Styles --- */
-.project-description {
-    position: relative;
 }
 
-#ppt_container {
-    width: 100%;
-    height: 245px;
-    border: 2px solid rgba(255,255,255,0.2);
-    border-radius: 12px;
-    margin-top: 15px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #888 #222;
+@media (hover: none), (pointer: coarse) {
+    .floating-image {
+        display: none;
+    }
 }
 
-/* Scrollbar for Chrome, Edge, Safari */
-.project-description {
-    transition: opacity 0.4s ease;
+@media (max-width: 991.98px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .navbar .container {
+        column-gap: 10px;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .navbar-brand {
+        font-size: clamp(1rem, 4.8vw, 1.15rem);
+        letter-spacing: 0.4px;
+        max-width: min(72vw, 230px);
+    }
+
+    .navbar-toggler {
+        padding: 0.3rem 0.5rem;
+        border-color: rgba(255, 255, 255, 0.34);
+    }
+
+    .navbar-toggler-icon {
+        width: 1.1em;
+        height: 1.1em;
+    }
+
+    .navbar-collapse {
+        width: 100%;
+        flex-basis: 100%;
+        order: 3;
+        margin-top: 0.85rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding-top: 0.7rem;
+    }
+
+    .navbar-nav {
+        padding-top: 0.2rem;
+    }
+
+    .navbar-actions {
+        margin-top: 0.75rem !important;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .timeline::before {
+        left: 16px;
+        transform: none;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding: 0 0 0 44px;
+        margin-bottom: 18px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 16px;
+        right: auto;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .project-card img {
+        height: 320px;
+    }
 }
 
-.ppt-box {
-    width: 100%;
-    height: 250px;
-    border: 2px solid rgba(255,255,255,0.25);
-    border-radius: 12px;
-    margin-top: 10px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+@media (max-width: 575.98px) {
+    .navbar .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .navbar-brand {
+        max-width: calc(100% - 56px);
+        font-size: 1rem;
+        letter-spacing: 0.2px;
+    }
+
+    .navbar-toggler {
+        padding: 0.22rem 0.42rem;
+    }
+
+    .project-card img {
+        height: 260px;
+        padding: 6px;
+    }
+
+    .project-slide {
+        padding: 12px 48px 12px 12px;
+        min-height: 250px;
+    }
+
+    .project-slide-actions {
+        flex-wrap: nowrap;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .project-slide-actions .btn,
+    .project-slide-actions .btn-progress {
+        flex: 1 1 0;
+        min-width: 0;
+        font-size: 0.9rem;
+        padding: 9px 10px;
+    }
+
+    .project-slide p,
+    .project-tech-list {
+        font-size: 0.9rem;
+    }
+
+    .project-next-btn {
+        width: 34px;
+        height: 34px;
+        right: 8px;
+        font-size: 1.3rem;
+    }
+
+    .navbar-actions {
+        justify-content: flex-start;
+    }
 }
 
-/* Scrollbar styling */
-.ppt-box::-webkit-scrollbar {
-    width: 8px;
-}
-.ppt-box::-webkit-scrollbar-track {
-    background: #222;
-    border-radius: 10px;
-}
-.ppt-box::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
+@media (max-width: 390px) {
+    .navbar .container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .navbar-brand {
+        max-width: calc(100% - 52px);
+        font-size: 0.95rem;
+    }
+
+    .navbar-toggler {
+        padding: 0.18rem 0.36rem;
+    }
 }
 
-#ppt_frame {
-    width: 98%;
-    height: 800px; /* big height to enable scrolling */
-    border: none;
+@media (prefers-reduced-motion: reduce) {
+    .gradient-text {
+        animation: none;
+    }
+
+    .floating-image,
+    .skill-card-effect,
+    .image-effect,
+    .timeline-card,
+    .project-slider-track,
+    .project-slider-dot,
+    .project-next-btn,
+    .btn-progress::before,
+    .btn-progress::after {
+        transition: none;
+    }
 }
