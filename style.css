@@ -1,8 +1,16 @@
 @font-face {
     font-family: "Sansita";
-    src: local("Sansita"), local("Sansita Regular"), local("Sansita-Bold");
+    src: local("Sansita Regular"), local("Sansita"), url("fonts/Sansita-400.woff2") format("woff2");
     font-style: normal;
-    font-weight: 400 700;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Sansita";
+    src: local("Sansita Bold"), local("Sansita-Bold"), url("fonts/Sansita-700.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
     font-display: swap;
 }
 
