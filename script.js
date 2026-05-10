@@ -8,6 +8,36 @@ document.addEventListener("DOMContentLoaded", () => {
         currentYear.textContent = String(new Date().getFullYear());
     }
 
+    // --- Smooth anchor scrolling with fixed navbar offset ---
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (event) => {
+            const targetId = anchor.getAttribute("href");
+            if (!targetId || targetId === "#") {
+                return;
+            }
+
+            const target = document.querySelector(targetId);
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+            const navbar = document.querySelector(".navbar");
+            const navOffset = navbar ? navbar.getBoundingClientRect().height + 20 : 92;
+            const targetTop = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
+
+            window.scrollTo({
+                top: Math.max(targetTop, 0),
+                behavior: prefersReducedMotion ? "auto" : "smooth"
+            });
+
+            const navbarCollapse = document.querySelector(".navbar-collapse.show");
+            if (navbarCollapse && typeof bootstrap !== "undefined") {
+                bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide();
+            }
+        });
+    });
+
     // --- Initialize AOS (Animate On Scroll) ---
     if (typeof AOS !== "undefined") {
         AOS.init({
@@ -16,6 +46,28 @@ document.addEventListener("DOMContentLoaded", () => {
             mirror: true,
             disable: prefersReducedMotion
         });
+    }
+
+    // --- Initialize Vanta Clouds Background ---
+    const vantaLayer = document.getElementById("vanta-clouds-bg");
+    if (!prefersReducedMotion && vantaLayer && typeof VANTA !== "undefined" && typeof VANTA.CLOUDS === "function") {
+        VANTA.CLOUDS({
+            el: "#vanta-clouds-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            skyColor: 0x0a0a1f,
+            cloudColor: 0x8fc7ff,
+            cloudShadowColor: 0x152047,
+            sunColor: 0x22ff00,
+            sunGlareColor: 0x00f5ff,
+            sunlightColor: 0xf72585,
+            speed: 0.75
+        });
+    } else if (vantaLayer) {
+        vantaLayer.style.display = "none";
     }
 
     // --- Initialize Typed.js ---
@@ -31,70 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     } else if (typedElement) {
         typedElement.textContent = typedStrings[1];
-    }
-
-    // --- Initialize Particles.js ---
-    if (!prefersReducedMotion && typeof particlesJS !== "undefined") {
-        particlesJS("particles-js", {
-            particles: {
-                number: {
-                    value: 55,
-                    density: {
-                        enable: true,
-                        value_area: 900
-                    }
-                },
-                color: { value: "#ffffff" },
-                shape: { type: "circle" },
-                opacity: {
-                    value: 0.45,
-                    random: true
-                },
-                size: {
-                    value: 3,
-                    random: true
-                },
-                line_linked: { enable: false },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "bottom",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: isFinePointer,
-                        mode: "repulse"
-                    },
-                    onclick: {
-                        enable: isFinePointer,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    repulse: {
-                        distance: 100,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    }
-                }
-            },
-            retina_detect: true
-        });
-    } else {
-        const particlesLayer = document.getElementById("particles-js");
-        if (particlesLayer) {
-            particlesLayer.style.display = "none";
-        }
     }
 
     // --- Floating image logic ---

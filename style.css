@@ -21,10 +21,12 @@
     --secondary-accent: #F72585;
     --text-color: #F0F0F8;
     --subtle-text: #ffffff;
-    --glass-bg: rgba(15, 15, 35, 0.35);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(7, 14, 28, 0.22);
+    --glass-border: rgba(255, 255, 255, 0.16);
     --font-heading: "Poppins", sans-serif;
     --font-body: "Inter", sans-serif;
+    --nav-offset: 92px;
+    --corner-radius: 22px;
 }
 
 /* --- Base & Body Styles --- */
@@ -36,22 +38,60 @@ body {
     overscroll-behavior-x: none;
 }
 
-body {
+html {
     background-color: var(--bg-color);
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-offset);
+}
+
+body {
+    background-color: transparent;
     color: var(--text-color);
     font-family: var(--font-body);
     overflow-x: hidden;
     line-height: 1.65;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: rgba(0, 245, 255, 0.75) rgba(7, 14, 28, 0.35);
+    scrollbar-width: thin;
 }
 
-/* --- Particles.js Background --- */
-#particles-js {
+section,
+.hero-section,
+footer {
+    scroll-margin-top: var(--nav-offset);
+}
+
+body div:not(#vanta-clouds-bg):not(.container):not(.row):not([class*="col-"]):not(.timeline):not(.timeline-dot):not(.project-slider-track):not(.project-slide-actions):not(.hero-actions):not(.navbar-actions):not(.social-icons) {
+    border-radius: var(--corner-radius);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(7, 14, 28, 0.35);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(0, 245, 255, 0.88), rgba(34, 255, 0, 0.78));
+    border: 2px solid rgba(7, 14, 28, 0.45);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(34, 255, 0, 0.95), rgba(0, 245, 255, 0.95));
+}
+
+/* --- Vanta Clouds Background --- */
+#vanta-clouds-bg {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -2;
+    pointer-events: none;
 }
 
 /* --- Glassmorphism Panel --- */
@@ -60,15 +100,24 @@ body {
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
     border: 1px solid var(--glass-border);
-    border-radius: 1rem;
+    border-radius: var(--corner-radius);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-panel:not(.navbar):hover {
+    transform: translateY(-6px);
+    border-color: rgba(34, 255, 0, 0.42);
+    background: rgba(7, 14, 28, 0.3);
+    box-shadow: 0 22px 70px rgba(0, 245, 255, 0.28);
 }
 /* --- Project Card & Slider --- */
 .project-card {
-    --project-accent: #22ff00;
+    --project-accent: #00ff44;
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow: hidden;
 }
 
 .project-card .card-body {
@@ -89,16 +138,22 @@ body {
     height: 380px;
     object-fit: contain;
     object-position: center;
-    background: rgba(7, 14, 28, 0.62);
-    border-radius: 12px;
+    background: transparent;
+    border-radius: calc(var(--corner-radius) - 8px);
     padding: 8px;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.025);
+    filter: drop-shadow(0 16px 28px rgba(0, 245, 255, 0.22));
 }
 
 .project-slider {
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: calc(var(--corner-radius) - 8px);
     border: 1px solid rgba(34, 255, 0, 0.26);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(7, 14, 28, 0.16);
     touch-action: pan-y;
     position: relative;
 }
@@ -260,7 +315,7 @@ body {
     width: 100%;
     height: 260px;
     border: 1px solid rgba(34, 255, 0, 0.26);
-    border-radius: 12px;
+    border-radius: calc(var(--corner-radius) - 8px);
     margin-top: 4px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -375,7 +430,7 @@ section {
 
 .timeline-card {
     border-color: rgba(34, 255, 0, 0.24);
-    background: rgba(11, 18, 43, 0.56);
+    background: rgba(7, 14, 28, 0.24);
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     text-align: left;
 }
@@ -450,7 +505,7 @@ section {
     left: 0;
     right: 0;
     width: 100%;
-    padding: 1rem 0;
+    /* padding: 0 rem 0; */
     overflow-x: clip;
     transition: background-color 0.3s ease;
 }
@@ -520,6 +575,12 @@ section {
 
 .hero-section .lead {
     font-family: "Sansita", sans-serif;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.hero-section .lead:hover {
+    color: #22ff00;
+    text-shadow: 0 0 12px rgba(34, 255, 0, 0.55);
 }
 
 .hero-actions .btn {
@@ -642,14 +703,20 @@ footer {
 }
 
 .photo {
-box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
- 
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.photo:hover {
+  transform: translateY(-6px) scale(1.03);
+  filter: saturate(1.08);
+  box-shadow: 0 0 45px rgba(34, 255, 0, 0.42), 0 0 80px rgba(0, 245, 255, 0.3);
 }
 .skill-card-effect {
 
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: transparent;
-  border-radius: 20px;
+  border-radius: var(--corner-radius);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 12px 40px 0 rgba(0, 245, 255, 0.2);
@@ -752,7 +819,7 @@ box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
 
 @media (max-width: 991.98px) {
     .navbar {
-        padding: 0.75rem 0;
+        padding: 0rem 0;
     }
 
     .navbar .container {
@@ -897,14 +964,34 @@ box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
     }
 }
 
+
+.logo-img{
+    height: 40px;   /* Adjust size */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.navbar-brand:hover .logo-img {
+    transform: translateY(-2px) scale(1.08);
+    filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0));
+}
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     .gradient-text {
         animation: none;
     }
 
     .floating-image,
+    .glass-panel,
+    .logo-img,
+    .photo,
     .skill-card-effect,
     .image-effect,
+    .project-card img,
     .timeline-card,
     .project-slider-track,
     .project-slider-dot,
